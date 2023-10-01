@@ -5,9 +5,24 @@ body {
     font-size: 22px;
 }
 
+body,
+section {
+    margin: 0;
+    padding: 0;
+}
+
 /* ------- */
 /* Nav bar */
 /* ------- */
+
+.open_nav {
+    display: none;
+    /* scale: 2; */
+    position: fixed;
+    right: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
 
 .nav {
     display: flex;
@@ -73,12 +88,12 @@ body {
     .nav:hover {
         width: 170px;
     }
-    
+
     .nav .nav_element .label {
         display: none;
         transition: display 0.5s .5s ease-in-out;
     }
-    
+
     .nav:hover .nav_element .label {
         display: block;
     }
@@ -147,4 +162,107 @@ body {
         height: 20px;
         margin-left: 10px;
     }
+}
+
+/* --------- */
+/* hero page */
+/* --------- */
+
+.hero {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* align-items: center;
+    justify-content: center; */
+    max-width: 600px;
+    padding: 20px;
+    z-index: 2;
+    margin: 2rem;
+}
+
+.profile_picture {
+    margin: 1rem;
+}
+
+.profile_picture img {
+    width: 300px;
+    /* height: 376px; */
+    border-radius: 35px;
+}
+
+@media (max-width: 768px) {
+    .profile_picture img {
+        width: 200px;
+        /* height: 376px; */
+        border-radius: 35px;
+    }
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.first_name {
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    margin-right: .5rem;
+}
+
+.family_name {
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: .5rem;
+}
+
+.interested_in {
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-top: 4rem;
+}
+
+.interest_keywords {
+    font-family: monospace;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .interested_in {
+        margin-top: 2rem;
+    }
+    .interest_keywords {
+        font-size: 30px;
+    }
+}
+
+.cv {
+    height: 100vh;
 }
