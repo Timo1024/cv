@@ -54,4 +54,53 @@ window.addEventListener("load", function () {
     interests.querySelector(".label").innerHTML = "Interessen"
     contact.querySelector(".label").innerHTML = "Kontakt"
 
+    const nav_toggle = document.getElementById('nav_toggle')
+    const nav = document.getElementById('nav')
+    nav_toggle.addEventListener('mousedown', showNav);
+
+    function showNav() {
+        const nav_toggle = document.getElementById('nav_toggle')
+        const nav = document.getElementById('nav')
+        nav.classList.add("slide_in");
+        nav.classList.remove("slide_out");
+        nav.style.display = "flex";
+        nav_toggle.style.opacity = 0;
+        setTimeout(() => {
+            nav.classList.add("slide_out");
+            nav.classList.remove("slide_in");
+            nav_toggle.style.opacity = 1;
+            setTimeout(() => {
+                nav.style.display = "none";
+                nav.classList.remove("slide_out");
+            }, 1000)
+        }, 3000);
+        // nav.classList.remove("slide_out");
+        // nav.style.display = "none";
+    }
+
+    // Check the screen width and run the function conditionally
+    // function checkScreenWidth() {
+    //     const minWidth = 768;
+
+    //     const nav_toggle = document.getElementById('nav_toggle');
+    //     const nav = document.getElementById('nav');
+
+    //     if (window.innerWidth < minWidth) {
+    //         nav_toggle.style.opacity = 1;
+    //         nav.style.opacity = 0;
+    //         console.log("small window")
+    //         nav_toggle.addEventListener('mousedown', showNav);
+    //     } else {
+    //         nav_toggle.removeEventListener('mousedown', showNav);
+    //         nav_toggle.style.opacity = 0;
+    //         nav.style.opacity = 1;
+    //         nav.classList.remove("slide_out");
+    //         nav.classList.remove("slide_in");
+    //     }
+    // }
+
+    // window.addEventListener("resize", checkScreenWidth);
+
+    // checkScreenWidth();
+
 })

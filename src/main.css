@@ -3,6 +3,8 @@ body {
     color: #FFFFFF;
     font-family: 'Inter';
     font-size: 22px;
+    margin: 0;
+    padding: 0;
 }
 
 body,
@@ -16,16 +18,41 @@ section {
 /* ------- */
 
 .open_nav {
-    display: none;
-    /* scale: 2; */
     position: fixed;
     right: 0px;
     top: 50%;
     transform: translate(0, -50%);
+    padding: 1rem;
+    padding-right: 0;
+
+    z-index: 9998;
+
+    transition: opacity 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .open_nav {
+        display: block;
+        /* opacity: 1; */
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .open_nav {
+        display: none;
+        /* opacity: 0; */
+    }
+
+    .nav {
+        display: flex !important;
+    }
 }
 
 .nav {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     color: #FFF;
@@ -51,6 +78,44 @@ section {
     background: rgba(34, 34, 34, 0.00);
 
     transition: width 0.5s ease-in-out;
+
+    z-index: 9999;
+}
+
+.slide_in {
+    animation: slideInRight 0.5s forwards;
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translate(100%, -50%);
+        opacity: 0;
+        display: flex;
+    }
+
+    100% {
+        transform: translate(0, -50%);
+        opacity: 1;
+        display: flex;
+    }
+}
+
+.slide_out {
+    animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translate(0, -50%);
+        opacity: 1;
+        display: flex;
+    }
+
+    100% {
+        transform: translate(100%, -50%);
+        opacity: 0;
+        display: none;
+    }
 }
 
 .nav_element {
@@ -104,6 +169,7 @@ section {
         position: absolute;
         z-index: 1;
         background-color: #57CDC6;
+        /* background-color: #fff; */
         border-radius: 50%;
         opacity: 0;
     }
@@ -117,7 +183,7 @@ section {
     }
 
     .nav_element:hover .icon .highlight1 {
-        opacity: .2;
+        opacity: .1;
     }
 
     .icon .highlight2 {
@@ -129,7 +195,7 @@ section {
     }
 
     .nav_element:hover .icon .highlight2 {
-        opacity: .2;
+        opacity: .05;
     }
 
     .icon .highlight3 {
@@ -141,7 +207,7 @@ section {
     }
 
     .nav_element:hover .icon .highlight3 {
-        opacity: .1;
+        opacity: .05;
     }
 }
 
@@ -258,11 +324,109 @@ section {
     .interested_in {
         margin-top: 2rem;
     }
+
     .interest_keywords {
         font-size: 30px;
     }
 }
 
-.cv {
+/* ---------- */
+/* CV ------- */
+/* ---------- */
+
+/* .cv {
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+} */
+
+.cv {
+    position: relative;
+    width: 30%;
+    margin: 50px auto;
+    padding-left: 20px;
+    /* Adjust for left padding */
+    background-color: #1B1B1A;
+    /* Background color for the timeline */
 }
+
+.space {
+    height: 100px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.heading {
+    position: relative;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #101010;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    padding-left: 100px;
+    margin-bottom: 20px;
+    width: 100vw;
+}
+
+.marker {
+    width: 20px;
+    height: 20px;
+    background-color: #0074D9;
+    /* Color for timepoint markers */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.description {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Adjust the width of the timeline to your needs */
+@media (max-width: 768px) {
+    .cv {
+        width: 90%;
+    }
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    /* Width of the vertical line */
+    height: 100%;
+    /* Height of the vertical line */
+    background-color: #0074D9;
+    /* Color of the vertical line */
+    left: 10%;
+    /* Position the line at the center of the timeline */
+    transform: translateX(-50%);
+
+    z-index: 1000;
+    /* Center the line */
+}
+
+/* .line { */
+/* position: fixed;
+    left: 20px;
+    width: 5879px;
+    height: 10px;
+    transform: rotate(90deg);
+    flex-shrink: 0;
+    stroke-width: 10px;
+    stroke: #D9D9D9; */
+/* content: "";
+    top: 50vh;
+    left: 50px;
+    width: 1px;
+    height: 200%;
+    background-color: #fff;
+    z-index: 0; */
+/* } */
