@@ -75,7 +75,8 @@ section {
     height: 344px;
     border-radius: 20px;
     border: 1px solid #FAF6ED;
-    background: rgba(34, 34, 34, 0.00);
+    /* background: rgba(34, 34, 34, 0.00); */
+    background-color: #1B1B1A;
 
     transition: width 0.5s ease-in-out;
 
@@ -341,8 +342,10 @@ section {
 } */
 
 .cv {
+    /* height: 500%; */
+    overflow-x: hidden;
     position: relative;
-    width: 30%;
+    /* width: 30%; */
     margin: 50px auto;
     padding-left: 20px;
     /* Adjust for left padding */
@@ -354,10 +357,13 @@ section {
     height: 100px;
 }
 
-.timeline-item {
+.timeline_item {
     display: flex;
     margin-bottom: 20px;
+    width: 90%;
 }
+
+/* heading */
 
 .heading {
     position: relative;
@@ -367,66 +373,122 @@ section {
     background-color: #101010;
     color: #fff;
     text-align: left;
-    padding: 10px;
-    padding-left: 100px;
+    /* padding: 10px; */
+    padding-left: 200px;
     margin-bottom: 20px;
     width: 100vw;
+
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
+
+.timeline_subtitle {
+    font-family: Inter;
+    font-size:  16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: .5rem;
+
+    margin-bottom: 10px;
+}
+
+.timeline_title {
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* marker */
 
 .marker {
-    width: 20px;
-    height: 20px;
-    background-color: #0074D9;
-    /* Color for timepoint markers */
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.description {
-    flex: 1;
-    padding: 10px;
+    flex-shrink: 0;
+    position: relative;
+    transform: translate(0%, 20px);
+    left: 115px;
+    
+    width: 10px;
+    height: 10px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    z-index: 8001;
+    /* margin-right: 10px; */
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* content */
+
+.timeline_item_content {
+    /* position: relative; */
+    max-width: 50%;
+    left: 150px;
+    padding: 15px;
+    padding-left: 150px;
+    /* background-color: rgba(255, 255, 255, .05); */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+
+    z-index: 0;
+}
+
+.timeline_item_content .date {
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+
+    margin-top: 0px;
+    /* margin-bottom: 20px; */
+}
+
+.timeline_item_content .event {
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    line-height: normal;
+
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
+}
+
+.timeline_item_content .event .main {
+    font-weight: 400;
+}
+
+.timeline_item_content .event .sub {
+    font-weight: 100;
+}
+
+.timeline_item_content .info {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
 }
 
 
-/* Adjust the width of the timeline to your needs */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .cv {
         width: 90%;
     }
-}
+} */
 
 .line {
     position: absolute;
-    width: 2px;
-    /* Width of the vertical line */
+    width: 1px;
     height: 100%;
-    /* Height of the vertical line */
-    background-color: #0074D9;
-    /* Color of the vertical line */
-    left: 10%;
-    /* Position the line at the center of the timeline */
+    background-color: #D9D9D9;
+    left: 140px;
     transform: translateX(-50%);
 
     z-index: 1000;
-    /* Center the line */
 }
-
-/* .line { */
-/* position: fixed;
-    left: 20px;
-    width: 5879px;
-    height: 10px;
-    transform: rotate(90deg);
-    flex-shrink: 0;
-    stroke-width: 10px;
-    stroke: #D9D9D9; */
-/* content: "";
-    top: 50vh;
-    left: 50px;
-    width: 1px;
-    height: 200%;
-    background-color: #fff;
-    z-index: 0; */
-/* } */
