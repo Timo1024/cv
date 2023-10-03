@@ -384,7 +384,7 @@ section {
 
 .timeline_subtitle {
     font-family: Inter;
-    font-size:  16px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -408,7 +408,7 @@ section {
     position: relative;
     transform: translate(0%, 20px);
     left: 115px;
-    
+
     width: 10px;
     height: 10px;
     background-color: #fff;
@@ -491,4 +491,42 @@ section {
     transform: translateX(-50%);
 
     z-index: 1000;
+}
+
+/* languages */
+
+.languages {
+    display: table;
+    max-width: 50%;
+}
+
+.languages_body {
+    display: table-row-group;
+}
+
+.languages_item {
+    display: table-row;
+}
+
+.languages_item>div {
+    display: table-cell;
+    padding: 20px;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+.language_name {
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.language_level {
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
 }
