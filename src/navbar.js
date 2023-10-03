@@ -76,4 +76,82 @@ window.addEventListener("load", function () {
         }, 3000);
     }
 
+    // link navbar elements to the divs where to jump to
+
+    // the divs:
+
+    const target_home = document.getElementById('navigation_home');
+    const target_education = document.getElementById('navigation_education');
+    const target_expertise = document.getElementById('navigation_expertise');
+
+    // the corresponding navigation elements in the nav bar:
+
+    const nav_home = document.getElementById('home');
+    const nav_education = document.getElementById('education');
+    const nav_expertise = document.getElementById('expertise');
+
+    // waiting for onclick on those
+    nav_home.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (target_home) {
+            target_home.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
+    nav_education.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (target_education) {
+            target_education.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
+    nav_expertise.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (target_expertise) {
+            target_expertise.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
+
+
 })
+
+// every time when scrolled:
+
+window.addEventListener('scroll', function () {
+    const scrollPosition = window.scrollY;
+
+    const offset = window.innerHeight * .7;
+
+    const nav_home = document.getElementById('home');
+    const nav_education = document.getElementById('education');
+    const nav_expertise = document.getElementById('expertise');
+
+    const target_home = document.getElementById('navigation_home');
+    const target_education = document.getElementById('navigation_education');
+    const target_expertise = document.getElementById('navigation_expertise');
+
+    console.log({ scrollPosition });
+
+    if (scrollPosition - offset < target_education.offsetTop) {
+        nav_home.classList.add('current_nav_element');
+        nav_education.classList.remove('current_nav_element');
+        nav_expertise.classList.remove('current_nav_element');
+    } else if (scrollPosition - offset >= target_education.offsetTop &&
+        scrollPosition - offset < target_expertise.offsetTop) {
+        nav_home.classList.remove('current_nav_element');
+        nav_education.classList.add('current_nav_element');
+        nav_expertise.classList.remove('current_nav_element');
+    } else if (scrollPosition - offset >= target_expertise.offsetTop) {
+        nav_home.classList.remove('current_nav_element');
+        nav_education.classList.remove('current_nav_element');
+        nav_expertise.classList.add('current_nav_element');
+    } else {
+        nav_home.classList.remove('current_nav_element');
+        nav_education.classList.remove('current_nav_element');
+        nav_expertise.classList.remove('current_nav_element');
+    }
+});

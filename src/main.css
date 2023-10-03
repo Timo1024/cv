@@ -125,6 +125,8 @@ section {
     flex-direction: row;
     align-items: center;
     align-content: flex-start;
+
+    transition: color 0.2s ease-in-out;
 }
 
 .icon {
@@ -138,6 +140,11 @@ section {
 
 .current_nav_element {
     color: #57CDC6;
+}
+
+.image svg path {
+    fill: #FAF6ED;
+    transition: fill 0.2s ease-in-out;
 }
 
 .current_nav_element .image svg path {
