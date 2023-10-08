@@ -134,8 +134,6 @@ window.addEventListener('scroll', function () {
     const target_education = document.getElementById('navigation_education');
     const target_expertise = document.getElementById('navigation_expertise');
 
-    console.log({ scrollPosition });
-
     if (scrollPosition - offset < target_education.offsetTop) {
         nav_home.classList.add('current_nav_element');
         nav_education.classList.remove('current_nav_element');
