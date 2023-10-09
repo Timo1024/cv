@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
     const middleArrow = document.querySelector('.hover_scrolling_middle_arrow');
 
     // initialize the middle arrow position
-    middleArrow.style.top = `${hoverScrollingElements[0].offsetTop + hoverScrollingElements[0].offsetHeight / 2  - middleArrow.offsetHeight / 2 - 5}px`;
-    
+    middleArrow.style.top = `${hoverScrollingElements[0].offsetTop + hoverScrollingElements[0].offsetHeight / 2 - middleArrow.offsetHeight / 2 - 5}px`;
+
     setTimeout(() => {
         middleArrow.style.opacity = 1;
     }, 1000);
@@ -19,7 +19,7 @@ window.addEventListener("load", function () {
     // adapt the middle arrow position when the window is resized
     window.addEventListener('resize', () => {
         middleArrow.style.opacity = 0;
-        middleArrow.style.top = `${hoverScrollingElements[0].offsetTop + hoverScrollingElements[0].offsetHeight / 2  - middleArrow.offsetHeight / 2 - 5}px`;
+        middleArrow.style.top = `${hoverScrollingElements[0].offsetTop + hoverScrollingElements[0].offsetHeight / 2 - middleArrow.offsetHeight / 2 - 5}px`;
     });
 
     // set the left value of the arrow to match the value of the line with class hover_scrolling_middle_line
@@ -54,12 +54,12 @@ window.addEventListener("load", function () {
     const htmlContentDiv = document.getElementById('d_html');
     const schemeContentDiv = document.getElementById('d_scheme');
 
-    const python = {l : pythonDiv, d : pythonContentDiv};
-    const java = {l : javaDiv, d : javaContentDiv};
-    const r = {l : rDiv, d : rContentDiv};
-    const c0 = {l : c0Div, d : c0ContentDiv};
-    const html = {l : htmlDiv, d : htmlContentDiv};
-    const scheme = {l : schemeDiv, d : schemeContentDiv};
+    const python = { l: pythonDiv, d: pythonContentDiv };
+    const java = { l: javaDiv, d: javaContentDiv };
+    const r = { l: rDiv, d: rContentDiv };
+    const c0 = { l: c0Div, d: c0ContentDiv };
+    const html = { l: htmlDiv, d: htmlContentDiv };
+    const scheme = { l: schemeDiv, d: schemeContentDiv };
 
     // Loop through each language div and add a mouseover event listener
     const languages = [python, java, r, c0, html, scheme];
@@ -73,9 +73,12 @@ window.addEventListener("load", function () {
             language.d.style.top = `${x}px`;
         }
         // top value not greater than y
-        const y = document.querySelector('.hover_scrolling').offsetTop + document.querySelector('.hover_scrolling').offsetHeight - language.d.offsetHeight;
-        if (language.d.offsetTop > y) {
-            language.d.style.top = `${y}px`;
+        const y = document.querySelector('.hover_scrolling').offsetTop +
+            document.querySelector('.hover_scrolling').offsetHeight -
+            language.d.offsetHeight;
+
+        if (language.d.offsetTop + 10 > y) {
+            language.d.style.top = `${y-20}px`;
         }
     });
 
