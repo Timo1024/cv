@@ -83,12 +83,16 @@ window.addEventListener("load", function () {
     const target_home = document.getElementById('navigation_home');
     const target_education = document.getElementById('navigation_education');
     const target_expertise = document.getElementById('navigation_expertise');
+    const target_interests = document.getElementById('navigation_interests');
+    const target_contact = document.getElementById('navigation_contact');
 
     // the corresponding navigation elements in the nav bar:
 
     const nav_home = document.getElementById('home');
     const nav_education = document.getElementById('education');
     const nav_expertise = document.getElementById('expertise');
+    const nav_interests = document.getElementById('interests');
+    const nav_contact = document.getElementById('contact');
 
     // waiting for onclick on those
     nav_home.addEventListener('click', function (e) {
@@ -115,6 +119,22 @@ window.addEventListener("load", function () {
             });
         }
     })
+    nav_interests.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (target_interests) {
+            target_interests.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
+    nav_contact.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (target_contact) {
+            target_contact.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    })
 
 
 })
@@ -129,27 +149,53 @@ window.addEventListener('scroll', function () {
     const nav_home = document.getElementById('home');
     const nav_education = document.getElementById('education');
     const nav_expertise = document.getElementById('expertise');
+    const nav_interests = document.getElementById('interests');
+    const nav_contact = document.getElementById('contact');
 
     const target_home = document.getElementById('navigation_home');
     const target_education = document.getElementById('navigation_education');
     const target_expertise = document.getElementById('navigation_expertise');
+    const target_interests = document.getElementById('navigation_interests');
+    const target_contact = document.getElementById('navigation_contact');
 
     if (scrollPosition - offset < target_education.offsetTop) {
         nav_home.classList.add('current_nav_element');
         nav_education.classList.remove('current_nav_element');
         nav_expertise.classList.remove('current_nav_element');
+        nav_interests.classList.remove('current_nav_element');
+        nav_contact.classList.remove('current_nav_element');
     } else if (scrollPosition - offset >= target_education.offsetTop &&
         scrollPosition - offset < target_expertise.offsetTop) {
         nav_home.classList.remove('current_nav_element');
         nav_education.classList.add('current_nav_element');
         nav_expertise.classList.remove('current_nav_element');
-    } else if (scrollPosition - offset >= target_expertise.offsetTop) {
+        nav_interests.classList.remove('current_nav_element');
+        nav_contact.classList.remove('current_nav_element');
+    } else if (scrollPosition - offset >= target_expertise.offsetTop &&
+        scrollPosition - offset < target_interests.offsetTop) {
         nav_home.classList.remove('current_nav_element');
         nav_education.classList.remove('current_nav_element');
         nav_expertise.classList.add('current_nav_element');
+        nav_interests.classList.remove('current_nav_element');
+        nav_contact.classList.remove('current_nav_element');
+    } else if (scrollPosition - offset >= target_interests.offsetTop &&
+        scrollPosition - offset < target_contact.offsetTop) {
+        nav_home.classList.remove('current_nav_element');
+        nav_education.classList.remove('current_nav_element');
+        nav_expertise.classList.remove('current_nav_element');
+        nav_interests.classList.add('current_nav_element');
+        nav_contact.classList.remove('current_nav_element');
+    } else if (scrollPosition - offset >= target_contact.offsetTop) {
+        nav_home.classList.remove('current_nav_element');
+        nav_education.classList.remove('current_nav_element');
+        nav_expertise.classList.remove('current_nav_element');
+        nav_interests.classList.remove('current_nav_element');
+        nav_contact.classList.add('current_nav_element');
     } else {
         nav_home.classList.remove('current_nav_element');
         nav_education.classList.remove('current_nav_element');
         nav_expertise.classList.remove('current_nav_element');
+        nav_interests.classList.remove('current_nav_element');
+        nav_contact.classList.remove('current_nav_element');
     }
 });
